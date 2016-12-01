@@ -1,8 +1,15 @@
 #!/bin/bash
 clear
+echo "Answer all forensics questions before proceeding"
+echo "Are you 100% ready to proceed? (y/n)"
+read var
+if [ $var = y ]
+	then clear
+	else exit
+fi 
+
 echo "Remember to run as root"
 echo "Running CPAuto at $(date +%T)"
-
 echo "Enabling Firewall..."
 ufw enable
 echo "Blocking Telnet and other malicious ports..."
