@@ -42,10 +42,6 @@ if [ $media = y ]
 		find / -name '*.m4a' -type f -delete
 		find / -name '*.flv' -type f -delete
 		find / -name '*.ogg' -type f -delete
-		find /home -name '*.gif' -type f -delete
-		find /home -name '*.png' -type f -delete
-		find /home -name '*.jpg' -type f -delete
-		find /home -name '*.jpeg' -type f -delete
 fi 
 
 echo ""
