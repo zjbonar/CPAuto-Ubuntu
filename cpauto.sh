@@ -51,6 +51,7 @@ if [ $up = y ]
 		apt-get upgrade
 fi
 echo ""
+echo "CHECK SUDOERS FILE! /etc/sudoers"
 echo "REMEMBER TO MANUALLY EDIT CONFIG FILES!!!
 
 /etc/lightdm/lightdm.conf  <== allow_guest=false
