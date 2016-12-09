@@ -28,7 +28,8 @@ iptables -A INPUT -p udp -s 0/0 -d 0/0 --dport 515 -j DROP        #Block printer
 iptables -A INPUT -p tcp -s 0/0 -d 0/0 --dport 111 -j DROP        #Block Sun rpc/NFS
 iptables -A INPUT -p udp -s 0/0 -d 0/0 --dport 111 -j DROP        #Block Sun rpc/NFS
 iptables -A INPUT -p all -s localhost -i eth0 -j DROP #Deny outside packets from internet which claim to be from your loopback interface.
-echo ""
+echo "Disabling Root account..."
+passwd -l root
 echo "Would you like to locate media files? This process may take a while. (y/n)"
 read media
 if [ $media = y ]
@@ -71,7 +72,7 @@ echo "CHECK SUDOERS FILE! /etc/sudoers"
 echo "REMEMBER TO MANUALLY EDIT CONFIG FILES!!!
 
 /etc/lightdm/lightdm.conf  <== allow-guest=false
-/etc/ssh/ssh_config <== PermitRootLogin no
+/etc/ssh/sshd_config <== PermitRootLogin no
 /etc/sysctl.conf <== net.ipv4.tcp_syncookies=1"
 echo ""
 echo ""
