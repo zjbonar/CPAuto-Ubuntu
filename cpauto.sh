@@ -54,7 +54,7 @@ echo ""
 echo "CHECK SUDOERS FILE! /etc/sudoers"
 echo "REMEMBER TO MANUALLY EDIT CONFIG FILES!!!
 
-/etc/lightdm/lightdm.conf  <== allow_guest=false
+/etc/lightdm/lightdm.conf  <== allow-guest=false
 /etc/ssh/ssh_config <== PermitRootLogin no
 /etc/sysctl.conf <== net.ipv4.tcp_syncookies=1"
 echo ""
