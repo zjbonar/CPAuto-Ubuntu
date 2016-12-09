@@ -41,7 +41,6 @@ if [ $media = y ]
 		find / -name '*.flac' -type f -delete
 		find / -name '*.m4a' -type f -delete
 		find / -name '*.flv' -type f -delete
-		find / -name '*.ogg' -type f -delete
 fi 
 
 echo ""
