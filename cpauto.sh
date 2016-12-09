@@ -29,9 +29,23 @@ iptables -A INPUT -p tcp -s 0/0 -d 0/0 --dport 111 -j DROP        #Block Sun rpc
 iptables -A INPUT -p udp -s 0/0 -d 0/0 --dport 111 -j DROP        #Block Sun rpc/NFS
 iptables -A INPUT -p all -s localhost -i eth0 -j DROP #Deny outside packets from internet which claim to be from your loopback interface.
 echo ""
-echo "Would you like to delete media files? This process may take a while. (y/n)"
+echo "Would you like to locate media files? This process may take a while. (y/n)"
 read media
 if [ $media = y ]
+	then 	find / -name '*.mp3' -type f
+		find / -name '*.mov' -type f
+		find / -name '*.mp4' -type f
+		find / -name '*.avi' -type f
+		find / -name '*.mpg' -type f
+		find / -name '*.mpeg' -type f
+		find / -name '*.flac' -type f
+		find / -name '*.m4a' -type f
+		find / -name '*.flv' -type f
+fi 
+
+echo "Would you like to delete the media files?(y/n)"
+read boom
+if [ $boom = y ]
 	then 	find / -name '*.mp3' -type f -delete
 		find / -name '*.mov' -type f -delete
 		find / -name '*.mp4' -type f -delete
