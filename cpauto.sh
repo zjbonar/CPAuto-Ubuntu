@@ -63,6 +63,8 @@ read up
 if [ $up = y ]
 	then 	apt-get update
 		apt-get upgrade
+		apt-get autoclean
+		apt-get autoremove
 fi
 echo ""
 echo "CHECK SUDOERS FILE! /etc/sudoers"
