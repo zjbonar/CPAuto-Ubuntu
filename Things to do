@@ -1,0 +1,13 @@
+/etc/apt/sources.list		#check for malicious sources
+/etc/resolv.conf		#make sure if safe, use 8.8.8.8 for name server
+/etc/hosts			#make sure is not redirecting
+/etc/rc.local                 	#should be empty except for 'exit 0'
+/etc/sysctl.conf             	#change net.ipv4.tcp_syncookies entry from 0 to 1
+/etc/lightdm/lightdm.conf    	#allow_guest=false, remove autologin
+/etc/ssh/sshd_config         	#Look for PermitRootLogin and set to no
+/etc/sudoers			#make sure only root and users in admin or sudo group may use sudo
+apt-get install clamav		#install antivirus
+freshclam			#update antivirus database
+clamscan -r /			#scan entire system, will take a while
+apt-get install rkhunter	#install rootkit detector
+rkhunter			#run rkhunter
