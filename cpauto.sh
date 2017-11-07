@@ -9,9 +9,11 @@ if [ $begin = y ]
 	else echo "Script completed at $(date +%T)"
 	exit	
 fi 
+
 echo "Running CPAuto at $(date +%T)"
 echo "Enabling Firewall..."
 ufw enable
+
 echo "Blocking Telnet and other malicious ports..."
 ufw deny 23
 ufw deny 2049
@@ -27,9 +29,11 @@ iptables -A INPUT -p tcp -s 0/0 -d 0/0 --dport 515 -j DROP        #Block printer
 iptables -A INPUT -p udp -s 0/0 -d 0/0 --dport 515 -j DROP        #Block printer port
 iptables -A INPUT -p tcp -s 0/0 -d 0/0 --dport 111 -j DROP        #Block Sun rpc/NFS
 iptables -A INPUT -p udp -s 0/0 -d 0/0 --dport 111 -j DROP        #Block Sun rpc/NFS
-iptables -A INPUT -p all -s localhost -i eth0 -j DROP #Deny outside packets from internet which claim to be from your loopback interface.
+iptables -A INPUT -p all -s localhost -i eth0 -j DROP 		  #Deny outside packets from internet which claim to be from your loopback interface.
+
 echo "Disabling Root account..."
 passwd -l root
+
 echo "Would you like to locate media files? This process may take a while. (y/n)"
 read media
 if [ $media = y ]
@@ -44,7 +48,7 @@ if [ $media = y ]
 		find / -name '*.flv' -type f
 fi 
 
-echo "Would you like to delete the media files?(y/n)"
+echo "Would you like to delete the media files? (y/n)"
 read boom
 if [ $boom = y ]
 	then 	find / -name '*.mp3' -type f -delete
@@ -68,6 +72,7 @@ if [ $up = y ]
 		apt-get autoremove
 fi
 echo ""
+
 echo "CHECK SUDOERS FILE! /etc/sudoers"
 echo "REMEMBER TO MANUALLY EDIT CONFIG FILES!!!
 
